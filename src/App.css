@@ -1,38 +1,251 @@
-.App {
-  text-align: center;
+.app {
+  display: flex;
+  height: 100vh;
+  font-family: "Roboto";
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.chat-list {
+  width: 25vw;
+  overflow-y: auto;
+  position: relative;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2px;
+  margin: 0;
+  background-color: #7fa3cb;
+  border-bottom: 1px solid #696666;
+  max-height: 8vh;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.heading {
+  font-size: 20px;
+  padding: 10px 10px;
+  margin-right: 16px;
+  
+}
+.menu-button-container {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-button {
+  border: none;
+  background-color: transparent;
+  padding: 10px 10px;
+  cursor: pointer;
+  margin-right: 16px;
+}
+
+
+.sub-menu {
   display: flex;
   flex-direction: column;
+  height: 100%;
+}
+
+.sub-menu-section {
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  }
+.user-details {
+  font-size: 12px;
+  color: #ffffff;
+}
+.lower-sub-menu-section {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+}
+
+.avatar {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 14px;
+  background-color: hsl(54, 86%, 58%);
 }
 
-.App-link {
-  color: #61dafb;
+.dark-light-mode {
+  margin-left: auto;
+  border: none;
+  background-color: transparent;
+  align-self: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.button-details {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin: 6px;
+}
+.button-text {
+  margin: 4px;
+  margin-left: 16px;
+  font-size: 11px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #a8a5a5;
+  margin: 2px 0;
+  
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 4px;
+  border-radius: 10px;
+}
+
+.search-icon {
+  margin-right: 8px; /* Adjust spacing between icon and input field */
+}
+
+.input-base {
+  flex: 1; 
+  padding: 4px; 
+  border: none;
+  outline: none;
+}
+
+
+.chat-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px;
+  cursor: pointer;
+  max-height: 10vh;
+  border-bottom: 1px solid hsl(150, 1%, 32%);
+}
+
+.chat-avatar img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 6px;
+  margin: 8px;
+}
+
+.chat-info {
+  margin-left: 10px;
+  margin:8px;
+}
+
+.chat-name {
+  font-size: 20px;
+  font-family: 'Courier New';
+  font-weight: bold;
+  flex: 1;
+
+}
+.chat-messages {
+  width: 70%;
+  padding: 20px;
+  overflow-y: auto;
+  margin: 0;
+  background-image: linear-gradient(to right, rgba(240, 158, 158, 0), rgb(240, 160, 160));
+}
+
+.sender-header {
+  font-weight: bold;
+  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  height: 6vh;
+  padding-top: 10px;
+  text-align: center;
+  color: #ffffff;
+  background-color: rgb(197, 172, 228);
+  background-size: cover;
+}
+
+.message-item.left .message-content {
+  text-align: left;
+  background-color: hwb(187 78% 6%); /* Example background color for left-aligned messages */
+  margin-right: auto;
+}
+
+.message-item.right .message-content {
+  text-align: right;
+  background-color: rgb(242, 205, 228); /* Example background color for right-aligned messages */
+  margin-left: auto;
+}
+
+.message-item {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0;
+  padding: 4px;
+  margin: 2px 0;
+  max-height: 90vh;
+  min-height: 2vh;
+}
+
+.message-content {
+  padding: 14px;
+  border-radius: 10px;
+  min-width: 40%;
+  max-width: 80%;
+
+}
+
+.message-time {
+  text-align: right;
+  font-size: 10px;
+  color: hsl(0, 63%, 3%);
+}
+@media screen and (max-width: 767px){
+  .chat-list {
+    width: 30vw;
   }
-  to {
-    transform: rotate(360deg);
+  .chat-avatar img {
+    width: 35px;
+    height: 35px;
+    font-size: 4px;
+    margin: 8px;
   }
+
+  .chat-name {
+    margin: 4px;
+    font-size: 10px;
+    font-weight: bold;
+  }
+
+  .message-item {
+    padding: 2px;
+    margin: 1px 0;
+  }
+  
+  .message-content {
+    padding: 12px;
+    border-radius: 10px;
+    min-width: 20%;
+    max-width: 90%;
+    flex-wrap: wrap;
+  
+  }
+
+  .message-time {
+    font-size: 6px;
+  }
+  
+
+
 }

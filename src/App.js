@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import ChatList from './components/ChatList.js';
+import ChatMessages from './components/ChatMessages';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    selectedChatId: null,
+  };
+
+  selectChat = (id) => {
+    this.setState({ selectedChatId: id });
+  };
+
+  render() {
+    return (
+      <div className="app">
+        <ChatList selectChat={this.selectChat} />
+        <ChatMessages chatId={this.state.selectedChatId} />
+      </div>
+    );
+  }
 }
 
 export default App;
